@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #e6e6e6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+}
+
+header h1 {
+  font-size: 42px;
+  margin-bottom: 5px;
+}
+
+header p {
+  color: #9bdcff;
+}
+
+.auth-card, .card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px;
+}
+
+input, textarea {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid #3fa9f5;
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+}
+
+textarea {
+  height: 90px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.primary {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+}
+
+button.secondary {
+  background: #2c2c2c;
+  color: #fff;
+}
+
+.auth-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.dashboard {
+  margin-top: 40px;
+}
+
+.findings {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 15px;
+}
+
+.finding {
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.4);
+}
+
+.finding.Critical { border-left: 6px solid #ff4d4d; }
+.finding.High     { border-left: 6px solid #ff9800; }
+.finding.Medium   { border-left: 6px solid #ffeb3b; }
+.finding.Low      { border-left: 6px solid #4caf50; }
+
+.export-actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.hidden {
+  display: none;
+}
