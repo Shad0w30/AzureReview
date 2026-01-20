@@ -1,32 +1,62 @@
-#ok
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Azure Architecture & Security Review</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<div class="container">
 
-<h1>Azure Architecture & Security Review</h1>
+  <header>
+    <h1>Azure Architecture & Security Review</h1>
+    <p>Read-only, browser-based posture assessment</p>
+  </header>
 
-<div class="auth">
-  <input id="subscriptionId" placeholder="Subscription ID" />
-  <textarea id="token" placeholder="Azure ARM Access Token"></textarea>
-  <button onclick="startScan()">Start Scan</button>
-</div>
+  <section class="auth-card">
+    <h2>Authentication</h2>
 
-<div id="dashboard" style="display:none;">
-  <canvas id="severityChart"></canvas>
-  <div id="findings"></div>
+    <div class="auth-grid">
+      <input id="subscriptionId" placeholder="Subscription ID" />
 
-  <button onclick="exportExcel()">Export Excel</button>
-  <button onclick="exportPDF()">Export PDF</button>
+      <textarea id="token"
+        placeholder="Paste ARM Access Token (optional)"></textarea>
+    </div>
+
+    <div class="auth-actions">
+      <button class="primary" onclick="deviceCodeLogin()">
+        Login via Device Code
+      </button>
+
+      <button class="secondary" onclick="startScan()">
+        Start Scan
+      </button>
+    </div>
+
+    <div id="authStatus"></div>
+  </section>
+
+  <section id="dashboard" class="dashboard hidden">
+    <div class="card">
+      <canvas id="severityChart"></canvas>
+    </div>
+
+    <div id="findings" class="findings"></div>
+
+    <div class="export-actions">
+      <button onclick="exportExcel()">Export Excel</button>
+      <button onclick="exportPDF()">Export PDF</button>
+    </div>
+  </section>
+
 </div>
 
 <script src="libs/chart.min.js"></script>
 <script src="libs/xlsx.full.min.js"></script>
 <script src="libs/jspdf.umd.min.js"></script>
 
+<script src="auth-devicecode.js"></script>
 <script src="azure-api.js"></script>
 <script src="rules-engine.js"></script>
 <script src="dashboard.js"></script>
