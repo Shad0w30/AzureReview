@@ -1,5 +1,5 @@
 function renderDashboard(findings) {
-  document.getElementById("dashboard").style.display = "block";
+  document.getElementById("dashboard").classList.remove("hidden");
 
   const counts = { Critical:0, High:0, Medium:0, Low:0 };
   findings.forEach(f => counts[f.severity]++);
@@ -12,12 +12,12 @@ function renderDashboard(findings) {
     }
   });
 
-  const div = document.getElementById("findings");
-  div.innerHTML = findings.map(f => `
-    <div class="card ${f.severity}">
-      <b>${f.service}</b> - ${f.resource}<br>
-      <b>${f.issue}</b><br>
-      ${f.recommendation}
+  const fDiv = document.getElementById("findings");
+  fDiv.innerHTML = findings.map(f => `
+    <div class="finding ${f.severity}">
+      <h4>${f.service} – ${f.resource}</h4>
+      <b>${f.issue}</b>
+      <p>${f.recommendation}</p>
     </div>
   `).join("");
 }
